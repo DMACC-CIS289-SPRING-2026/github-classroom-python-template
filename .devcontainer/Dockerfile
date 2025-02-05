@@ -2,9 +2,9 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG USER=vscode
-RUN apt update \
-    && apt install -y --no-install-recommends curl wget git sudo build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
-    && apt autoremove -y \
+RUN sudo apt-get update \
+    && sudo apt-get install -y curl wget git sudo build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
+    && sudo apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     && usermod -s /usr/bin/zsh ${USER}
 
@@ -15,7 +15,7 @@ WORKDIR ${HOME}
 ENV BREW_PREFIX=/home/linuxbrew/.linuxbrew
 ENV PATH=${BREW_PREFIX}/sbin:${BREW_PREFIX}/bin:${PATH}
 COPY library-scripts/homebrew-debian.sh /tmp/library-scripts/
-RUN apt-get update && bash /tmp/library-scripts/homebrew-debian.sh
+RUN bash /tmp/library-scripts/homebrew-debian.sh
 
 ARG PYTHON_VERSION=3.11
 ENV PYENV_ROOT=${HOME}/.pyenv
