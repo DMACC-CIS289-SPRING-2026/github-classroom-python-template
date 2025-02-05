@@ -16,7 +16,7 @@ ENV BREW_PREFIX=/home/linuxbrew/.linuxbrew
 ENV PATH=${BREW_PREFIX}/sbin:${BREW_PREFIX}/bin:${PATH}
 COPY library-scripts/homebrew-debian.sh /tmp/library-scripts/
 # RUN sudo bash /tmp/library-scripts/homebrew-debian.sh
-RUN sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ARG PYTHON_VERSION=3.11
 ENV PYENV_ROOT=${HOME}/.pyenv
