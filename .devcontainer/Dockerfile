@@ -12,11 +12,13 @@ USER ${USER}
 ARG HOME="/home/${USER}"
 WORKDIR ${HOME}
 
-ENV BREW_PREFIX=/home/linuxbrew/.linuxbrew
-ENV PATH=${BREW_PREFIX}/sbin:${BREW_PREFIX}/bin:${PATH}
-COPY library-scripts/homebrew-debian.sh /tmp/library-scripts/
+# ENV BREW_PREFIX=/home/linuxbrew/.linuxbrew
+# ENV PATH=${BREW_PREFIX}/sbin:${BREW_PREFIX}/bin:${PATH}
+# COPY library-scripts/homebrew-debian.sh /tmp/library-scripts/
 # RUN sudo bash /tmp/library-scripts/homebrew-debian.sh
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
+    && echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/vscode/.zshrc \
+    && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 ARG PYTHON_VERSION=3.11
 ENV PYENV_ROOT=${HOME}/.pyenv
@@ -34,7 +36,7 @@ RUN set -x \
 
 RUN set -x \
 && brew install pyenv-virtualenv \
-&& echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc 
+&& echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 
 # ARG ZSH_CUSTOM=${HOME}/.oh-my-zsh/custom
 # RUN curl -sSL https://pdm.fming.dev/install-pdm.py | python - \

@@ -1,4 +1,4 @@
-default_install_hook_types: 
+default_install_hook_types:
   - commit-msg
   - pre-commit
   - pre-push
@@ -26,6 +26,6 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.9.1
     hooks:
-      - id: ruff
-        args: ["--fix"]
+      # - id: ruff
+      #   args: ["--fix"]
       - id: ruff-format

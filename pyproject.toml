@@ -1,6 +1,8 @@
 [tool.ruff]
 line-length=190
 indent-width=4
+fix=true
+src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = [
@@ -15,6 +17,7 @@ select = [
     # Pylint
     "PL",
 ]
+ignore = ["D211", "D212"]
 fixable = ["ALL"]
 unfixable = []
 

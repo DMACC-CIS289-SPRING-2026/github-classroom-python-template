@@ -42,5 +42,5 @@
             }
 		}
 	},
-	"postCreateCommand": "npm install -g @devcontainers/cli"
+	"postCreateCommand": "echo 'Welcome to CIS289' && pyenv shell 3.11 && pip install -r requirements.txt && pre-commit install"
 }
