@@ -12,13 +12,15 @@ USER ${USER}
 ARG HOME="/home/${USER}"
 WORKDIR ${HOME}
 
-# ENV BREW_PREFIX=/home/linuxbrew/.linuxbrew
-# ENV PATH=${BREW_PREFIX}/sbin:${BREW_PREFIX}/bin:${PATH}
-# COPY library-scripts/homebrew-debian.sh /tmp/library-scripts/
+ENV BREW_PREFIX=/home/linuxbrew/.linuxbrew
+ENV PATH=${BREW_PREFIX}/sbin:${BREW_PREFIX}/bin:${PATH}
+COPY library-scripts/homebrew-debian.sh /tmp/library-scripts/
 # RUN sudo bash /tmp/library-scripts/homebrew-debian.sh
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
+    && echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc \
     && echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/vscode/.zshrc \
-    && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
+    &&
 
 ARG PYTHON_VERSION=3.11
 ENV PYENV_ROOT=${HOME}/.pyenv
