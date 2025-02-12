@@ -1,5 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+]
+
 [tool.ruff]
-line-length=190
+line-length=120
 indent-width=4
 fix=true
 src = ["src", "tests"]
