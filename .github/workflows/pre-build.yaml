@@ -24,6 +24,6 @@ jobs:
       - name: Pre-build image
         uses: devcontainers/ci@v0.3
         with:
-            imageName: ghcr.io/DMACC-CIS289-SPRING-2025/example-devcontainer
-            cacheFrom: ghcr.io/DMACC-CIS289-SPRING-2025/example-devcontainer
+            imageName: ghcr.io/dmacc-cis289-spring-2025/example-devcontainer
+            cacheFrom: ghcr.io/dmacc-cis289-spring-2025/example-devcontainer
             push: always
