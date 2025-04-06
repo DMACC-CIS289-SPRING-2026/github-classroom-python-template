@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/dmacc-cis289-spring-2025/example-devcontainer",
+  "image": "ghcr.io/dmacc-cis289-spring-2025/github-classroom-python-template:latest",
   "customizations": {
     "vscode": {
       "extensions": [
