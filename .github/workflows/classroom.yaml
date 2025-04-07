@@ -27,6 +27,7 @@ jobs:
     - name: Run Precommit Hooks
       run: |
         cd $GITHUB_WORKSPACE
+        ls -alh
         pre-commit run --all-files
     - name: Run Pytest
       run: |
