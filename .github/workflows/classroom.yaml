@@ -11,6 +11,12 @@ permissions:
 jobs:
   run-autograding-tests:
     runs-on: ghcr.io/dmacc-cis289-spring-2025/github-classroom-python-template:latest
+    container:
+      image: ghcr.io/dmacc-cis289-spring-2025/github-classroom-python-template:latest
+      options: --user vscode
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
     if: github.actor != 'github-classroom[bot]'
     steps:
     - name: Checkout code
