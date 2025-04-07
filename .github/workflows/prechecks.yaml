@@ -1,4 +1,4 @@
-name: Autograding Tests
+name: Run Linter, Formatter Checks
 on:
   workflow_dispatch:
   pull_request:
@@ -9,7 +9,7 @@ permissions:
   actions: write
   contents: write
 jobs:
-  run-autograding-tests:
+  run-prechecks:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
