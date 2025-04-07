@@ -27,8 +27,6 @@ jobs:
     - name: Install Dependencies
       run: |
         pip install -r requirements.txt
-        pre-commit install
-        pre-commit run --all-files
     - name: Pytest Run
       id: pytest-run
       uses: classroom-resources/autograding-python-grader@v1
@@ -40,3 +38,8 @@ jobs:
         PYTEST-RUN_RESULTS: "${{steps.pytest-run.outputs.result}}"
       with:
         runners: pytest-run
+    - name: Run Precommit Hooks
+      run: |
+        cd $GITHUB_WORKSPACE
+        echo "Current Path: $(pwd)"
+        pre-commit run --all-files
