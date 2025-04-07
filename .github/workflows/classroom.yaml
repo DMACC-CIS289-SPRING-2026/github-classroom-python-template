@@ -10,7 +10,7 @@ permissions:
   contents: write
 jobs:
   run-autograding-tests:
-    runs-on: ghcr.io/dmacc-cis289-spring-2025/github-classroom-python-template:latest
+    runs-on: ubuntu-latest
     container:
       image: ghcr.io/dmacc-cis289-spring-2025/github-classroom-python-template:latest
       options: --user vscode
