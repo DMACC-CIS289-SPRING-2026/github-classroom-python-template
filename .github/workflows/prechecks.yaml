@@ -37,6 +37,7 @@ jobs:
 
   lint:
     needs: [initialize]
+    runs-on: ubuntu-latest
     steps: 
       - name: Run pre-commit
         run: |
@@ -54,6 +55,7 @@ jobs:
 
   test:
     needs: [initialize]
+    runs-on: ubuntu-latest
     steps:
       - name: Run pytest
         run: |
