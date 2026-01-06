@@ -1,4 +1,4 @@
-name: PreChecks
+name: 'Run Linter, Formatter, Pytest Checks'
 on:
   - workflow_dispatch
   - repository_dispatch
@@ -9,7 +9,6 @@ permissions:
 jobs:
   initialize:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-classroom[bot]'
     steps:
     - name: Checkout code
       uses: actions/checkout@v4

@@ -1,4 +1,4 @@
-name: Run Linter, Formatter, Pytest Checks
+name: 'Pre-Checks'
 on:
   workflow_dispatch:
   pull_request:
