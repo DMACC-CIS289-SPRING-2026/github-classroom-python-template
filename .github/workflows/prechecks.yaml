@@ -35,26 +35,26 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-  linter-check:
+  lint:
     needs: [initialize]
-    - name: Run pre-commit
-      run: |
-        pre-commit run --all-files
-        
-    - name: Cache pre-commit hooks
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/pre-commit
-        key: ${{ runner.os }}-precommit-${{ hashFiles('.pre-commit-config.yaml') }}
+    steps: 
+      - name: Run pre-commit
+        run: |
+          pre-commit run --all-files
 
-    - name: Run Ruff Check
-      run: |
-        ruff check
+      - name: Cache pre-commit hooks
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ runner.os }}-precommit-${{ hashFiles('.pre-commit-config.yaml') }}
 
+      - name: Run Ruff Check
+        run: |
+          ruff check
 
-
-  pytest-check:
+  test:
     needs: [initialize]
-    - name: Run pytest
-      run: |
-        pytest -v
+    steps:
+      - name: Run pytest
+        run: |
+          pytest -v
