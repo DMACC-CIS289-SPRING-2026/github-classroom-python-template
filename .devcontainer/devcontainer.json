@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/dmacc-cis289-root/github-classroom-python-template:latest",
+  "image": "ghcr.io/${localEnv:ORG_PACKAGE_REPO}/github-classroom-python-template:latest",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
