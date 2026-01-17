@@ -1,4 +1,3 @@
----
 name: Run Linter, Formatter, Pytest Checks
 on:
   - workflow_dispatch
