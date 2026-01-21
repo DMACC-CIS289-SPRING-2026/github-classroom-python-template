@@ -4,7 +4,7 @@ on: # rebuild any PRs and main branch changes
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: dmacc-cis289-root/github-classroom-python-template
+  IMAGE_NAME: dmacc-cis289-spring-2026/github-classroom-python-template
 
 jobs:
   build:
